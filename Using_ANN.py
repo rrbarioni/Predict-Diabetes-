@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 """
 Created on Mon Jul  9 21:48:06 2018
-
 @author: srinivas
 """
 
@@ -42,6 +41,8 @@ classifier.fit(X_train,y_train,epochs=50,batch_size=10)
 y_pred=classifier.predict(X_test)
 
 y_pred=(y_pred>0.5)
+
+test_acc_ANN = np.count_nonzero(np.equal(y_pred[:,0], y_test) == 1) / len(y_pred[:,0])
 
 from sklearn.metrics import confusion_matrix
 cm = confusion_matrix(y_test, y_pred)
